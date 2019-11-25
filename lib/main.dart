@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kiwi_generated_di_tutorial/injector.dart';
 
 import 'features/weather_forecast/presentation/widgets/weather_forecast_widget.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  Injector.setup();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

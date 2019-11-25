@@ -20,10 +20,13 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^3.1.0+1
+  kiwi: ^0.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  kiwi_generator: ^0.4.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiwi_generated_di_tutorial/injector.dart';
 import 'package:provider/provider.dart';
 
 import '../../data/datasources/forecast_data_source.dart';
@@ -12,17 +13,7 @@ class WeatherForecastWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      // Resolving the whole dependency graph directly from the UI
-      builder: (context) => WeatherForecastChangeNotifier(
-        GetForecast(
-          ForecastRepositoryImpl(
-            FakeForecastDataSource(),
-          ),
-          // Instance just for testing, you'd normally
-          // want to have a LocationRepository here
-          Location(latitude: 0, longitude: 0),
-        ),
-      ),
+      builder: (context) => Injector.resolve<WeatherForecastChangeNotifier>(),
       child: Consumer<WeatherForecastChangeNotifier>(
         builder: (context, provider, _) {
           return FutureBuilder<List<Forecast>>(
